@@ -75,14 +75,18 @@ win_width = 700
 win_height = 500
 packman = Player('hero.png', 100, 100, 4)
 window = display.set_mode((win_width, win_height))
+
 display.set_caption('Maze')
 monster = Enemy('cyborg.png', 100, 100, 4)
 background = transform.scale(image.load('background.jpg'), (win_width, win_height))
+
 game = True
 finish = False
 display.update()
+
 sp1 = Player('hero.png', 75, 75, 4)
 sp2 = Enemy('cyborg.png', 75, 75, 2)
+
 wall1 = Wall(154, 205, 50, 300, 20, 450, 10)
 wall2 = Wall(154, 205, 50, 300, 480, 450, 10)
 wall3 = Wall(154, 205, 50, 20, 100, 10, 300)
