@@ -1,4 +1,4 @@
-# 123qwe
+# Лабиринт с врагом
 ```python
 from pygame import *
 mixer.init()
