@@ -1,6 +1,5 @@
 # 123qwe
-###python
-```
+```python
 from pygame import *
 mixer.init()
 mixer.music.load('jungles.ogg')
