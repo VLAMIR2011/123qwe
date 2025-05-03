@@ -1,4 +1,6 @@
 # 123qwe
+###python
+```
 from pygame import *
 mixer.init()
 mixer.music.load('jungles.ogg')
@@ -94,3 +96,4 @@ while game:
     wall3.draw_wall()
     display.update()
     clock.tick(FPS)
+```
