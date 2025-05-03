@@ -1,9 +1,9 @@
 # Лабиринт с врагом
 ```python
 from pygame import *
-mixer.init()
-mixer.music.load('jungles.ogg')
-mixer.music.play()
+
+
+
 class GameSprite(sprite.Sprite):
    def __init__(self, player_image, player_x, player_y, player_speed):
        super().__init__()
@@ -15,7 +15,12 @@ class GameSprite(sprite.Sprite):
 
    def reset(self):
        window.blit(self.image, (self.rect.x, self.rect.y))
+
+
+
 class Player(GameSprite):
+
+
     def update(self):
         keys = key.get_pressed()
         if keys[K_LEFT] and self.rect.x > 5:
@@ -26,7 +31,12 @@ class Player(GameSprite):
             self.rect.y -= self.speed
         if keys[K_DOWN] and self.rect.y < win_height - 80:
             self.rect.y += self.speed
+
+
+
 class Enemy(GameSprite):
+
+
     def update(self):
         if self.rect.x <= 470:
             self.direction = 'right'
@@ -37,7 +47,11 @@ class Enemy(GameSprite):
             self.rect.x -= self.speed
         else:
             self.rect.x += self.speed
+
+
 class Wall(sprite.Sprite):
+
+
     def __init__(self, color_1, color_2, color_3, wall_x, wall_y, wall_width, wall_height):
         super().__init__()
         self.color_1 = color_1
@@ -50,10 +64,11 @@ class Wall(sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x = wall_x
         self.rect.y = wall_y
+
     def draw_wall(self):
         window.blit(self.image, (self.rect.x, self.rect.y))
-kick = mixer.Sound('kick.ogg')
-kick.play()
+
+
 FPS = 60
 clock = time.Clock()
 win_width = 700
@@ -71,20 +86,23 @@ sp2 = Enemy('cyborg.png', 75, 75, 2)
 wall1 = Wall(154, 205, 50, 300, 20, 450, 10)
 wall2 = Wall(154, 205, 50, 300, 480, 450, 10)
 wall3 = Wall(154, 205, 50, 20, 100, 10, 300)
+
+
 while game:
+
     for e in event.get():
         if e.type == QUIT:
             game = False
+
     if finish != True:
         if sprite.collide_rect(packman, monster) or sprite.collide_rect(packman, wall1) or sprite.collide_rect(packman, wall2) or sprite.collide_rect(packman, wall3):
             finish = True
-            kick.play()
             time.delay(1000)
             packman.rect.x = 100
             packman.rect.y = 100
         elif sprite.collide_rect(packman, final):
             finish = True
-            money.play()
+
     window.blit(background, (0, 0))
     packman.update()
     packman.reset()
